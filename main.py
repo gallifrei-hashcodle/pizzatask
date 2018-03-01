@@ -10,7 +10,7 @@ def get_car_with_least_waiting_time(ride):
 
 
 def solve():
-    data = in_out.read_task('Inputs/example.in')
+    data = in_out.read_task('Inputs/a_example.in')
     all_rides = data['ride_list']
     sortRidesByStartTime(all_rides)
     total_time = data['steps']
