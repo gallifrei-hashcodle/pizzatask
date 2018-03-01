@@ -38,3 +38,4 @@ def read_solution(output_file_name):
             pieces.append(piece)
     data['pieces'] = pieces
     return data
+
