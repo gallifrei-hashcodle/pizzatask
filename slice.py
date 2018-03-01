@@ -17,10 +17,13 @@ class Slice(object):
     def columns(self):
         return self.down_column - self.up_column + 1
 
-    def transform(self):
+    def transform(self, max_size):
         size = self.size()
         if self.rows() / self.columns() == size and self.rows() % self.columns() == 0:
-            return basic_slice(++size, self.up_row, self.up_column)
+            if size < max_size:
+                return basic_slice(++size, self.up_row, self.up_column)
+            else:
+                return None
         else:
             new_rows = self.rows() + 1
             while size % new_rows != 0 and new_rows < size:
@@ -30,3 +33,5 @@ class Slice(object):
 
     def __str__(self):
         return str([self.up_row, self.up_column, self.down_row, self.down_column])
+
+
