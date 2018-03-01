@@ -11,7 +11,7 @@ def initialiseCars(data):
         carList.append(car.Car(0,0,False,x,0))
     return carList
 
-data = in_out.read_task('Inputs/a_example.in')
+data = in_out.read_task('Inputs/b_should_be_easy.in')
 carList = initialiseCars(data)
 
 def distance_to_car(start_row, start_column, current_row, current_column):
@@ -21,12 +21,14 @@ def distance_to_car(start_row, start_column, current_row, current_column):
 def get_car_with_least_waiting_time(ride, current_time):
     least_waiting_time = sys.maxsize
     car_with_least_waiting_time = None
-    for car in [car for car in carList if car.is_busy==False]:
-        time = ride.start_time - (current_time + distance_to_car(ride.start_row, ride.start_column, car.current_row, car.current_column))
+    distance_to_car1 = None
+    for car in [car for car in carList if car.is_busy1(current_time) == False]:
+        distance_to_car1 = distance_to_car(ride.start_row, ride.start_column, car.current_row, car.current_column)
+        time = ride.start_time - (current_time + distance_to_car1)
         if time < least_waiting_time:
             least_waiting_time = time
             car_with_least_waiting_time = car
-    return car_with_least_waiting_time, time
+    return car_with_least_waiting_time, distance_to_car1
 
 
 def in_time_for_ride(ride, current_time, time_to_car):
@@ -50,6 +52,7 @@ def solve():
                     if in_time_for_ride(ride, current_time, time_to_car):
                         assigned_car.assign_ride(ride, current_time + time_to_car)
                         assigned_rides.append(ride)
+        current_time += 1
 
     for car in carList:
         print (str(car.car_id) + " " + str(car.assigned_rides))

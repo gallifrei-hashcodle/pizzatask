@@ -24,7 +24,7 @@ class Car(object):
         self.current_column = ride.end_column
         self.next_finish_time = start_time + ride.duration
 
-    def is_busy(self, time):
+    def is_busy1(self, time):
         return time < self.next_finish_time
 
 
