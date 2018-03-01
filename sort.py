@@ -1,7 +1,3 @@
-import in_out
-data = in_out.read_task('Inputs/a_example.in')
-all_rides = data['rides_list']
-
 def sortRidesByStartTime(all_rides):
 
     for ride1 in range(len(all_rides)-1):
@@ -12,4 +8,3 @@ def sortRidesByStartTime(all_rides):
                 all_rides[ride1] = all_rides[ride2];
                 all_rides[ride2] = temp;
     return  all_rides
-print("here"+ str(sortRidesByStartTime(all_rides)))

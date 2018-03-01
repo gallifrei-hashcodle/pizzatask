@@ -1,9 +1,6 @@
 import in_out
-import sort
 import car
 import sort
-
-
 
 def initialiseCars(data):
     numberOfCars = data['vehicles']
@@ -11,9 +8,6 @@ def initialiseCars(data):
     for x in range(0, numberOfCars):
         carList.append(car.Car(0,0,False,x,0))
     return carList
-
-def sortRidesByStartTime(all_rides):
-    pass
 
 
 def get_car_with_least_waiting_time(ride):
