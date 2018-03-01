@@ -1,8 +1,6 @@
 import in_out
+import sort
 
-
-def sortRidesByStartTime(all_rides):
-    pass
 
 
 def get_car_with_least_waiting_time(ride):
@@ -12,7 +10,7 @@ def get_car_with_least_waiting_time(ride):
 def solve():
     data = in_out.read_task('Inputs/a_example.in')
     all_rides = data['ride_list']
-    sortRidesByStartTime(all_rides)
+    sort.sortRidesByStartTime(all_rides)
     total_time = data['steps']
     current_time = 0
     pending_rides = all_rides
@@ -22,6 +20,7 @@ def solve():
                 assigned_car = get_car_with_least_waiting_time(ride)
                 assigned_car.assignRide(ride)
                 pending_rides.remove(ride)
+
 
 
 
