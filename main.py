@@ -1,4 +1,4 @@
-import io
+import in_ou
 
 __author__ = 'hlib'
 
@@ -13,9 +13,9 @@ def solve(data):
 
 
 def main(input_file, output_file):
-    data = io.read_task(input_file)
+    data = in_ou.read_task(input_file)
     pp.pprint(data)
     solution = solve(data)
-    io.write_solution(solution, output_file)
+    in_ou.write_solution(solution, output_file)
 
 main('Inputs/example.in', 'Outputs/example.out')
