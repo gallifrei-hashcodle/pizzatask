@@ -26,9 +26,9 @@ def read_task(file):
         return data
 
 def generate_outputFiles(carList):
-  file = open("Output/b_should_be_easy.out","w")
+  file = open("Output/c_no_hurry.out","w")
   for car in carList:
-      carDetails = str(car.car_id)
+      carDetails = str(len(car.assigned_rides))
 
       for ride in car.assigned_rides:
           carDetails = carDetails + " "+ str(ride)

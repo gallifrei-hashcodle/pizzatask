@@ -11,7 +11,7 @@ def initialiseCars(data):
         carList.append(car.Car(0,0,False,x,0))
     return carList
 
-data = in_out.read_task('Inputs/b_should_be_easy.in')
+data = in_out.read_task('Inputs/c_no_hurry.in')
 carList = initialiseCars(data)
 
 def distance_to_car(start_row, start_column, current_row, current_column):
