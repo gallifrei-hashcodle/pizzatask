@@ -2,20 +2,32 @@ import in_out
 
 __author__ = 'hlib'
 
-import pprint as pp
+import slice as slices
+import pizzacut
+
+def cut_all_pizza(pizza, min_ingredients, max_size):
+    rows = len(pizza)
+    column = len(pizza[0])
+    slice_list = []
+    for i in range (rows):
+        for j in range (column):
+            slice = slices.basic_slice(1, i, j)
+            print(i)
+            while slice is not None:
+                if pizzacut.canCut(pizza, [[slice.up_row, slice.up_column], [slice.down_row, slice.down_column]],
+                                   min_ingredients, max_size):
+                    pizzacut.pizzaCutting(pizza, [[slice.up_row, slice.up_column], [slice.down_row, slice.down_column]])
+                    slice_list.append([slice.up_row, slice.up_column, slice.down_row, slice.down_column])
+                    print("piece added " + str(len(slice_list)))
+                    break
+                else:
+                    slice = slices.Slice(slice.up_row, slice.up_column, slice.down_row, slice.down_column).transform(max_size)
+    return slice_list
 
 
-def solve(data):
-    solution = dict()
-    solution['n'] = 3
-    solution['pieces'] = [[0, 0, 2, 1],[0, 2, 2, 2],[0, 3, 2, 4]]
-    return solution
+import in_out
 
-
-def main(input_file, output_file):
-    data = in_out.read_task(input_file)
-    pp.pprint(data)
-    solution = solve(data)
-    in_out.write_solution(solution, output_file)
-
-main('Inputs/example.in', 'Outputs/example.out')
+data = in_out.read_task('Inputs/example.in')
+ps = cut_all_pizza(data['pizza'].tolist(), data['L'], data['H'])
+solution = {'pieces': ps, 'n': len(ps)}
+in_out.write_solution(solution, 'Outputs/example.out')

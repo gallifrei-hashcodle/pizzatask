@@ -77,4 +77,4 @@ def validate(input_file, output_file):
             print("Not enough Mushrooms or Tomatoes")
             return
     print("Your Score Is {0}".format(calculate_score(slices)))
-validate('Inputs/example.in', 'Outputs/example.out')
+validate('Inputs/big.in', 'Outputs/big.out')
