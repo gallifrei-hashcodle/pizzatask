@@ -5,6 +5,7 @@ Created on Thu Mar  1 19:41:25 2018
 @author: Filip
 """
 
+
 class Car(object):
     def __init__(self, current_row, current_column, is_busy, car_id, newxt_finish_time):
         self.current_row = current_row
@@ -22,4 +23,6 @@ class Car(object):
 
     def is_busy(self, time):
         return time < self.newxt_finish_time
+
+
 
