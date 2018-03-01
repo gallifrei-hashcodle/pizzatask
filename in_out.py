@@ -28,4 +28,4 @@ def read_task(file):
 
 
 
-print(read_task("Inputs/a_example.in"))
+# print(read_task("Inputs/a_example.in"))
