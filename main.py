@@ -11,7 +11,7 @@ def initialiseCars(data):
         carList.append(car.Car(0,0,False,x,0))
     return carList
 
-data = in_out.read_task('Inputs/c_no_hurry.in')
+data = in_out.read_task('Inputs/d_metropolis.in')
 carList = initialiseCars(data)
 
 def distance_to_car(start_row, start_column, current_row, current_column):
@@ -41,7 +41,8 @@ def solve():
     current_time = 0
     pending_rides = all_rides
     assigned_rides = []
-    while current_time < total_time and len(pending_rides) > 0:
+    while current_time < min(500, total_time) and len(pending_rides) > 0:
+        print(current_time)
         for ride in all_rides:
             if ride in pending_rides:
                 assigned_car, time_to_car = get_car_with_least_waiting_time(ride, current_time)
