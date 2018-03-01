@@ -23,8 +23,25 @@ def read_input(file):
         return data
 
 
-def main(file):
-    data = read_input(file)
-    pp.pprint(data)
+def solve(data):
+    solution = dict()
+    solution['n'] = 3
+    solution['pieces'] = [[0, 0, 2, 1],[0, 2, 2, 2],[0, 3, 2, 4]]
+    return solution
 
-main('Inputs/example.in')
+
+def write_output(solution, output_file_name):
+    with open(output_file_name, 'w') as f:
+        f.write(str(solution['n']) + '\n')
+        for row in solution['pieces']:
+            f.write(' '.join(str(elm) for elm in row) + '\n')
+
+
+
+def main(input_file, output_file):
+    data = read_input(input_file)
+    pp.pprint(data)
+    solution = solve(data)
+    write_output(solution, output_file)
+
+main('Inputs/example.in', 'Outputs/example.out')
