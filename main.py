@@ -3,7 +3,7 @@ __author__ = 'hlib'
 import numpy as np
 import pprint as pp
 
-def read_input(file):
+def read_task(file):
     data = dict()
     with open(file, 'r') as f:
         line = f.readline()
@@ -30,7 +30,7 @@ def solve(data):
     return solution
 
 
-def write_output(solution, output_file_name):
+def write_solution(solution, output_file_name):
     with open(output_file_name, 'w') as f:
         f.write(str(solution['n']) + '\n')
         for row in solution['pieces']:
@@ -39,9 +39,9 @@ def write_output(solution, output_file_name):
 
 
 def main(input_file, output_file):
-    data = read_input(input_file)
+    data = read_task(input_file)
     pp.pprint(data)
     solution = solve(data)
-    write_output(solution, output_file)
+    write_solution(solution, output_file)
 
 main('Inputs/example.in', 'Outputs/example.out')
