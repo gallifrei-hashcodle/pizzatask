@@ -48,11 +48,11 @@ def solve():
                 else:
                     pending_rides.remove(ride)
                     if in_time_for_ride(ride, current_time, time_to_car):
-                        assigned_car.assign_ride(ride)
+                        assigned_car.assign_ride(ride, current_time + time_to_car)
                         assigned_rides.append(ride)
 
     for car in carList:
-        print (car.car_id + " " + car.assigned_rides)
+        print (str(car.car_id) + " " + str(car.assigned_rides))
 
 solve()
 
