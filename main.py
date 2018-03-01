@@ -1,6 +1,19 @@
 import in_out
 import sort
+import car
+import sort
 
+
+
+def initialiseCars(data):
+    numberOfCars = data['vehicles']
+    carList = []
+    for x in range(0, numberOfCars):
+        carList.append(car.Car(0,0,False,x,0))
+    return carList
+
+def sortRidesByStartTime(all_rides):
+    pass
 
 
 def get_car_with_least_waiting_time(ride):
@@ -9,7 +22,8 @@ def get_car_with_least_waiting_time(ride):
 
 def solve():
     data = in_out.read_task('Inputs/a_example.in')
-    all_rides = data['ride_list']
+    carList = initialiseCars(data)
+    all_rides = data['rides_list']
     sort.sortRidesByStartTime(all_rides)
     total_time = data['steps']
     current_time = 0
@@ -20,7 +34,6 @@ def solve():
                 assigned_car = get_car_with_least_waiting_time(ride)
                 assigned_car.assignRide(ride)
                 pending_rides.remove(ride)
-
 
 
 
