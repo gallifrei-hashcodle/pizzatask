@@ -54,10 +54,13 @@ def solve():
                         assigned_rides.append(ride)
         current_time += 1
 
-    for car in carList:
-        print (str(car.car_id) + " " + str(car.assigned_rides))
+    return carList
 
-solve()
+list = solve()
+for car in list:
+    print(car.assigned_rides)
+
+in_out.generate_outputFiles(list)
 
 
 

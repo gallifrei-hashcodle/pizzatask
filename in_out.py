@@ -25,7 +25,15 @@ def read_task(file):
         data['rides_list'] = rides
         return data
 
+def generate_outputFiles(carList):
+  file = open("Output/b_should_be_easy.out","w")
+  for car in carList:
+      carDetails = str(car.car_id)
 
+      for ride in car.assigned_rides:
+          carDetails = carDetails + " "+ str(ride)
+      file.write(str(carDetails) + "\n")
+  file.close()
 
 
 # print(read_task("Inputs/a_example.in"))
