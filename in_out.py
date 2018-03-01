@@ -1,3 +1,4 @@
+from pprint import pprint
 import  numpy as np
 
 def read_task(file):
@@ -25,3 +26,16 @@ def write_solution(solution, output_file_name):
         f.write(str(solution['n']) + '\n')
         for row in solution['pieces']:
             f.write(' '.join(str(elm) for elm in row) + '\n')
+
+
+def read_solution(output_file_name):
+    data = dict()
+    pieces = []
+    with open(output_file_name, 'r') as f:
+        n_pieces = int(f.readline())
+        for i in range(0, n_pieces):
+            piece = [list(map(int, f.readline().split(' ')))]
+            pieces.append(piece)
+    data['pieces'] = pieces
+    return data
+
