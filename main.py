@@ -1,10 +1,15 @@
 import sys
 import math
 import in_out
+import car
+import sort
 
-
-def sortRidesByStartTime(all_rides):
-    pass
+def initialiseCars(data):
+    numberOfCars = data['vehicles']
+    carList = []
+    for x in range(0, numberOfCars):
+        carList.append(car.Car(0,0,False,x,0))
+    return carList
 
 car_list = []
 
@@ -29,8 +34,9 @@ def in_time_for_ride(ride, current_time, time_to_car):
 
 def solve():
     data = in_out.read_task('Inputs/a_example.in')
-    all_rides = data['ride_list']
-    sortRidesByStartTime(all_rides)
+    carList = initialiseCars(data)
+    all_rides = data['rides_list']
+    sort.sortRidesByStartTime(all_rides)
     total_time = data['steps']
     current_time = 0
     pending_rides = all_rides
